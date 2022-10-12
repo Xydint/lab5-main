@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:lab5.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="450" d:DesignHeight="100"
+		Width="450" Height="100"
+        x:Class="lab5.Views.SubWindowRegex"
+        Title="SubWindowRegex">
+	<Window.Styles>
+		<Style Selector="TextBox.t">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+		</Style>
+		<Style Selector="Button.b">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Top"/>
+		</Style>
+	</Window.Styles>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<TextBox Classes="t" Grid.Row="0" Text="{Binding RegexStringNew}"/>
+		<Button Name="OkButton" Classes="b" Grid.Row="1" Content="OK"/>
+		<Button Name="CancelButton" Classes="b" Grid.Row="2" Content="Cancel"/>
+
+	</Grid>
+</Window>

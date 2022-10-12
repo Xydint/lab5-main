@@ -1,0 +1,55 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:lab5.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="400" d:DesignHeight="450"
+		Width="450" Height="600"
+        x:Class="lab5.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="lab5">
+	<Window.Styles>
+		<Style Selector="TextBox.t">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+		</Style>
+		<Style Selector="Button.b">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="HorizontalContentAlignment" Value="Center"/>
+			<Setter Property="VerticalContentAlignment" Value="Top"/>
+		</Style>
+	</Window.Styles>
+
+	<Design.DataContext>
+		<vm:MainWindowViewModel/>
+	</Design.DataContext>
+
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="500*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<TextBox Classes="t" Grid.Column="0" AcceptsReturn="True" TextWrapping="Wrap" Text="{Binding TextIn}"></TextBox>
+			<TextBox Classes="t" Grid.Column="1" Focusable="False" Text="{Binding TextOut}"></TextBox>
+		</Grid>
+		<Grid Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Button Name="OpenFile" Classes="b" Grid.Column="0" Content="Open File"></Button>
+			<Button Name="SaveFile" Classes="b" Grid.Column="1" Content="Save File"></Button>
+		</Grid>
+
+		<Button Name="SetRegex" Classes="b" Grid.Row="2" Content="Set Regex" Click="OpenSubWindowRegex"></Button>
+
+	</Grid>
+
+</Window>
